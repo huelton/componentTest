@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: componentes
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: huelt
+Implementation-Vendor-Id: integracao
+Build-Jdk: 1.8.0_101
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/componentes
+Created-By: Maven Integration for Eclipse
+
