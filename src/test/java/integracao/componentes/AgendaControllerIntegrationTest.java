@@ -10,6 +10,7 @@ import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import integracao.componentes.agenda.AgendaController;
@@ -65,4 +66,15 @@ public class AgendaControllerIntegrationTest {
 		agendaController.inserirRegistro(null, ddd, telefone);
 	}
 	
+	@Test
+	public void inserirRegistroDeveSalvarContato() throws ContatoException {
+		agendaController.inserirRegistro(nome, ddd, telefone);
+		Mockito.verify(contatoRepository,Mockito.times(1)).save(new Contato(nome,ddd,telefone));
+	}
+	
+	@Test
+	public void removeRegistroDeveRemoverContato() throws ContatoException {
+		agendaController.removerRegistro(1L);
+		Mockito.verify(contatoRepository, Mockito.times(1)).deleteById(1L);
+	}
 }
